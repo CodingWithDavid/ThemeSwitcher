@@ -1,0 +1,19 @@
+﻿@page "/light/{style}"
+
+@inject IJSRuntime JSRuntime;
+
+<h3>@style</h3>
+
+@code {
+
+    [Parameter]
+    public string style { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("dynamicSheet", style);
+        }
+    }
+}

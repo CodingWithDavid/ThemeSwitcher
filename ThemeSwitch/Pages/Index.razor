@@ -1,0 +1,16 @@
+﻿@page "/"
+
+@inject IJSRuntime JSRuntime;
+
+<h1>Demonstration of changing the style sheet.</h1>
+<div>
+    <button @onclick="SwitchSheet">Switch</button>
+</div>
+
+@code{
+
+    private async Task SwitchSheet()
+    {
+        await JSRuntime.InvokeVoidAsync("switchSheet");
+    }
+}
